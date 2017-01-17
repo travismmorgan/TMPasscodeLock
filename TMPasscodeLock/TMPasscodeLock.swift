@@ -8,7 +8,13 @@
 
 import UIKit
 
-class TMPasscodeLock: NSObject {
+public class TMPasscodeLock: NSObject {
+    
+    public class var isPasscodeSet: Bool {
+        get {
+            return TMPasscodeLock.passcode != nil
+        }
+    }
     
     class var bundleIdentifier: String {
         get {
