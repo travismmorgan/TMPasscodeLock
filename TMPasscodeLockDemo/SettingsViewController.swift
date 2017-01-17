@@ -21,12 +21,12 @@ class SettingsViewController: UITableViewController, TMPasscodeLockControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        passcodeCell.detailTextLabel?.text = TMPasscodeLockController.isPasscodeSet ? "On" : "Off"
+        passcodeCell.detailTextLabel?.text = TMPasscodeLock.isPasscodeSet ? "On" : "Off"
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if TMPasscodeLockController.isPasscodeSet {
+        if TMPasscodeLock.isPasscodeSet {
             performSegue(withIdentifier: "Passcode", sender: nil)
         } else {
             let passcodeLockController = TMPasscodeLockController(style: .basic, state: .set)
@@ -42,6 +42,6 @@ class SettingsViewController: UITableViewController, TMPasscodeLockControllerDel
     }
     
     func passcodeLockController(passcodeLockController: TMPasscodeLockController, didFinishFor state: TMPasscodeLockState) {
-        passcodeCell.detailTextLabel?.text = TMPasscodeLockController.isPasscodeSet ? "On" : "Off"
+        passcodeCell.detailTextLabel?.text = TMPasscodeLock.isPasscodeSet ? "On" : "Off"
     }
 }

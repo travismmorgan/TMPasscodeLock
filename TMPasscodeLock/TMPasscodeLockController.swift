@@ -26,12 +26,6 @@ public protocol TMPasscodeLockControllerDelegate: class {
 
 public class TMPasscodeLockController: NSObject, TMPasscodeLockViewControllerDelegate {
     
-    public class var isPasscodeSet: Bool {
-        get {
-            return TMPasscodeLock.passcode != nil
-        }
-    }
-    
     public weak var delegate: TMPasscodeLockControllerDelegate?
     
     public var style: TMPasscodeLockStyle = .basic
@@ -55,7 +49,7 @@ public class TMPasscodeLockController: NSObject, TMPasscodeLockViewControllerDel
 
     public func presentIn(window: UIWindow, animated: Bool) {
         guard !isPresented else { return }
-        if (state != .set) && !TMPasscodeLockController.isPasscodeSet {
+        if (state != .set) && !TMPasscodeLock.isPasscodeSet {
             print("Passcode not set")
             return
         }
