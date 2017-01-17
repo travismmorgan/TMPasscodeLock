@@ -21,7 +21,7 @@ s.summary          = 'A simple passcode lock controller.'
 
 s.homepage         = 'https://github.com/travismmorgan/TMPasscodeLock'
 # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-s.license          = { :type => 'MIT', :file => 'LICENSE.txt' }
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Travis Morgan' => 'travismmorgan@gmail.com' }
 s.source           = { :git => 'https://github.com/travismmorgan/TMPasscodeLock.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
