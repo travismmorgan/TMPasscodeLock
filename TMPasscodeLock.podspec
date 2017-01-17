@@ -17,7 +17,7 @@ s.summary          = 'A simple passcode lock controller.'
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-s.description      = 'A simple passcode lock controller.'
+# s.description      = 'A simple passcode lock controller.'
 
 s.homepage         = 'https://github.com/travismmorgan/TMPasscodeLock'
 # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
