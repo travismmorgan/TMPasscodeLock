@@ -34,7 +34,7 @@ class TMPasscodeLockViewController: UIViewController {
     var newPasscode: String?
     
     convenience init(style: TMPasscodeLockStyle, state: TMPasscodeLockState) {
-        self.init(nibName: "TMBasicViewController", bundle: Bundle(identifier: TMPasscodeLock.bundleIdentifier))
+        self.init(nibName: "TMBasicViewController", bundle: Bundle(for: TMPasscodeLockViewController.self))
 
         self.style = style
         self.state = state
