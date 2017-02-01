@@ -24,14 +24,10 @@ public class TMPasscodeLock: NSObject {
 
     class var passcode: String? {
         get {
-            return TMKeychain.load(identifier: "\(TMPasscodeLock.bundleIdentifier).passcode") as? String
+            return UserDefaults.standard.string(forKey: "\(TMPasscodeLock.bundleIdentifier).passcode")
         }
         set {
-            if newValue != nil {
-                TMKeychain.save(identifier: "\(TMPasscodeLock.bundleIdentifier).passcode", object: newValue!)
-            } else {
-                TMKeychain.delete(identifier: "\(TMPasscodeLock.bundleIdentifier).passcode")
-            }
+            UserDefaults.standard.set(newValue, forKey: "\(TMPasscodeLock.bundleIdentifier).passcode")
         }
     }
 }
