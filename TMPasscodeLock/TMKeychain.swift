@@ -39,7 +39,7 @@ class TMKeychain {
     
     class func load(identifier: String) -> Any? {
         let keychainQuery = getKeychainQuery(identifier: identifier)
-        keychainQuery.setObject(kCFBooleanTrue, forKey: kSecReturnDataValue)
+        keychainQuery.setObject(kCFBooleanTrue!, forKey: kSecReturnDataValue)
         keychainQuery.setObject(kSecMatchLimitOneValue, forKey: kSecMatchLimitValue)
         
         var dataTypeRef: AnyObject?

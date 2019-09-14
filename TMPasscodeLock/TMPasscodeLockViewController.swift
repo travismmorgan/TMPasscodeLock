@@ -72,7 +72,7 @@ class TMPasscodeLockViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -81,9 +81,9 @@ class TMPasscodeLockViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillChangeFrame(notification: Notification) {
-        var info = notification.userInfo
-        let kbSize = (info![UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
+    @objc func keyboardWillChangeFrame(notification: Notification) {
+        let info = notification.userInfo
+        let kbSize = (info![UIResponder.keyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
         
         if kbSize.height != bottomConstraint.constant {
             bottomConstraint.constant = kbSize.height
@@ -91,7 +91,7 @@ class TMPasscodeLockViewController: UIViewController {
         }
     }
     
-    func cancel() {
+    @objc func cancel() {
         textField.resignFirstResponder()
         delegate?.passcodeLockViewControllerDidCancel()
     }
@@ -295,7 +295,7 @@ extension TMPasscodeLockViewController: UITextFieldDelegate {
         
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         
-        switch newString.characters.count {
+        switch newString.count {
         case 0:
             dot1.isHidden = true
             break
@@ -320,7 +320,7 @@ extension TMPasscodeLockViewController: UITextFieldDelegate {
         
         textField.text = newString
 
-        if newString.characters.count == 4 {
+        if newString.count == 4 {
             checkPasscode(code: newString)
         }
         
